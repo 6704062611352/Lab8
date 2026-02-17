@@ -4,6 +4,7 @@
 #define STD 8
 
 int checkscore(char std[]);
+int countCorrectQ1(char ans[][10], int nStd, char keys[]);
 
 char keys[Q] = {'D','B','D','C','C','D','A','E','A','D'};
 
@@ -30,6 +31,16 @@ int main() {
     for (int i = 0; i < STD; i++) {
         printf("std %d => %d\n", i + 1, checkscore(ans[i]));
     }
+    printf("Correct Q1 = %d\n", countCorrectQ1(ans, 8, keys));
 
     return 0;
+}
+int countCorrectQ1(char ans[][10], int nStd, char keys[]) {
+    int count = 0;
+    for (int i = 0; i < nStd; i++) {
+        if (ans[i][0] == keys[0]) { // ??? 1 = index 0
+            count++;
+        }
+    }
+    return count;
 }
